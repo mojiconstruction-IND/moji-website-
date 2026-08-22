@@ -1,0 +1,572 @@
+/* ============================================================
+   SERVICES PAGE STYLES
+   ============================================================ */
+
+/* ── HERO ─────────────────────────────────────────────── */
+.hero {
+  min-height: 52vh;
+  display: flex;
+  align-items: center;
+  padding-top: clamp(140px, 11vw, 175px);
+  padding-bottom: clamp(4rem, 6vw, 5.5rem);
+  padding-inline: var(--section-px);
+  background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 30%, #eaf4ff 60%, #fff6f0 100%);
+  background-size: 300% 300%;
+  animation: gradientBg 18s ease infinite;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 15px 60px rgba(29, 78, 137, 0.06);
+}
+
+@keyframes gradientBg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -15%;
+  right: -8%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.16) 0%, transparent 60%);
+  pointer-events: none;
+  animation: glowPulse 14s ease-in-out infinite;
+  z-index: 0;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(transparent, var(--bg-page));
+  z-index: 1;
+  pointer-events: none;
+}
+
+.heroOrangeOrb {
+  position: absolute;
+  bottom: -5%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(234, 88, 12, 0.08) 0%, transparent 65%);
+  pointer-events: none;
+  animation: glowPulse 16s ease-in-out infinite reverse;
+  z-index: 0;
+}
+
+.heroInner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 56rem;
+}
+
+.heroBadge {
+  display: inline-block;
+  padding: 0.4rem 1.15rem;
+  border-radius: 999px;
+  background: rgba(29, 78, 137, 0.12);
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  width: fit-content;
+}
+
+.heroTitle {
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.heroSub {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  color: var(--text-body);
+  line-height: 1.75;
+  max-width: 48rem;
+}
+
+/* Metrics Bar */
+.heroMetrics {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  margin-top: 1rem;
+  padding: 1.35rem 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(29, 78, 137, 0.14);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 10px 30px rgba(29, 78, 137, 0.08);
+  width: fit-content;
+  flex-wrap: wrap;
+}
+
+.metricItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.metricVal {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.metricLabel {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metricDivider {
+  width: 1px;
+  height: 32px;
+  background: var(--color-steel-200);
+}
+
+/* ── SERVICES GRID ───────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: var(--color-white);
+  border: 1px solid rgba(29, 78, 137, 0.12);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s var(--ease-out-expo),
+              border-color 0.4s;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px rgba(29, 78, 137, 0.16);
+  border-color: var(--card-color, var(--primary));
+}
+
+.imageBanner {
+  position: relative;
+  height: 190px;
+  overflow: hidden;
+  background: var(--color-navy-50);
+}
+
+.imageBanner img {
+  transition: transform 0.6s ease;
+}
+
+.card:hover .imageBanner img {
+  transform: scale(1.08);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(29, 78, 137, 0.35) 100%);
+  z-index: 1;
+}
+
+.iconOverlay {
+  position: absolute;
+  bottom: 1rem;
+  left: 1.5rem;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(29, 78, 137, 0.18);
+  border: 1px solid rgba(29, 78, 137, 0.15);
+}
+
+.cardBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  padding: 0.3rem 0.85rem;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(29, 78, 137, 0.2);
+  border-radius: 999px;
+  color: var(--primary);
+  font-size: 0.825rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 8px rgba(29, 78, 137, 0.12);
+}
+
+.iconWrap {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-md);
+  background: rgba(29, 78, 137, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 1.5rem 0 1.5rem;
+}
+
+.icon {
+  font-size: 1.65rem;
+}
+
+.cardContent {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+.voltageTag {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+  background: rgba(29, 78, 137, 0.09);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  width: fit-content;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.desc {
+  font-size: 1.025rem;
+  color: var(--text-body);
+  line-height: 1.65;
+}
+
+.featuresWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.25rem;
+}
+
+.featuresHeading {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 1.55;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--card-color, var(--primary));
+  flex-shrink: 0;
+  margin-top: 0.45rem;
+}
+
+.projectsBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.85rem 1rem;
+  background: var(--color-steel-50);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-steel-200);
+  margin-top: 0.5rem;
+}
+
+.projectsBoxHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.projectsBoxIcon {
+  font-size: 0.95rem;
+}
+
+.projectsBoxTitle {
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.projectsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.projectItem {
+  font-size: 0.925rem;
+  color: var(--primary);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.cardFooter {
+  padding: 0 1.75rem 1.75rem 1.75rem;
+  margin-top: auto;
+}
+
+.serviceActionBtn {
+  display: block;
+  text-align: center;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  background: var(--color-steel-100);
+  color: var(--primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  border: 1px solid var(--color-steel-200);
+}
+
+.serviceActionBtn:hover {
+  background: var(--primary);
+  color: var(--color-white);
+  border-color: var(--primary);
+}
+
+.border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--card-color, var(--primary));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .border {
+  transform: scaleX(1);
+}
+
+/* ── 5-STAGE PROCESS ─────────────────────────────────── */
+.processGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.35rem;
+  margin-top: 2.5rem;
+}
+
+.processCard {
+  background: var(--color-steel-50);
+  border: 1px solid var(--color-steel-200);
+  border-radius: var(--radius-xl);
+  padding: 1.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.processCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  background: var(--color-white);
+  box-shadow: 0 12px 30px rgba(29, 78, 137, 0.08);
+}
+
+.processHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.processNumber {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: rgba(29, 78, 137, 0.25);
+}
+
+.processIcon {
+  font-size: 1.55rem;
+}
+
+.processTitle {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.processDesc {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+/* ── SECTORS GRID ────────────────────────────────────── */
+.sectorsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.sectorCard {
+  background: var(--color-white);
+  border: 1px solid rgba(29, 78, 137, 0.12);
+  border-radius: var(--radius-xl);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.85rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sectorCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(29, 78, 137, 0.1);
+}
+
+.sectorIcon {
+  font-size: 2.5rem;
+}
+
+.sectorName {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.sectorLogos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.clientLogoWrap {
+  position: relative;
+  width: 90px;
+  height: 45px;
+  opacity: 0.85;
+  filter: grayscale(100%) opacity(0.8);
+  transition: all 0.3s ease;
+}
+
+.sectorCard:hover .clientLogoWrap {
+  filter: grayscale(0%) opacity(1);
+  opacity: 1;
+}
+
+.clientLogoWrap:hover {
+  transform: scale(1.05);
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .processGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .sectorsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .processGrid {
+    grid-template-columns: 1fr;
+  }
+  .sectorsGrid {
+    grid-template-columns: 1fr;
+  }
+  .heroMetrics {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .metricDivider {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: clamp(125px, 20vw, 150px);
+    padding-bottom: 3.5rem;
+  }
+  .heroMetrics {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .cardBody {
+    padding: 1.5rem 1.25rem;
+  }
+  .processCard {
+    padding: 1.5rem 1.25rem;
+  }
+}

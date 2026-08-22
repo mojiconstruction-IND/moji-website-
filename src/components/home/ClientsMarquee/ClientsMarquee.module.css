@@ -1,0 +1,193 @@
+/* ═══════════════════════════════════════════════════
+   CLIENTS MARQUEE — Infinite Horizontal Scroll
+   ═══════════════════════════════════════════════════ */
+
+.marqueeSection {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafd 50%, #ffffff 100%);
+  border-top: 1px solid rgba(29, 78, 137, 0.06);
+  border-bottom: 1px solid rgba(29, 78, 137, 0.06);
+  padding: 3rem 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+.marqueeSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(29, 78, 137, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.marqueeInner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.marqueeHeader {
+  text-align: center;
+  padding-inline: 1rem;
+}
+
+.marqueeTitle {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.marqueeTitle::before,
+.marqueeTitle::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--color-steel-300);
+  flex-shrink: 0;
+}
+
+/* ── MARQUEE CORE ───────────────────────────────────
+   Pattern:
+   - .marqueeContainer: clips overflow, adds fade masks
+   - .marqueeTrack: the thing that actually moves (translateX -50%)
+   - .marqueeGroup × 2: identical copies side by side
+   Moving -50% of track (which = 2 groups) = exactly 1 group width → seamless
+──────────────────────────────────────────────────── */
+
+.marqueeContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Fade masks on left/right */
+.marqueeContainer::before,
+.marqueeContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.marqueeContainer::before {
+  left: 0;
+  background: linear-gradient(to right, #ffffff 30%, transparent 100%);
+}
+.marqueeContainer::after {
+  right: 0;
+  background: linear-gradient(to left, #ffffff 30%, transparent 100%);
+}
+
+/* The moving strip — contains 2 identical groups */
+.marqueeTrack {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  animation: marqueeScroll 14s linear infinite;
+  will-change: transform;
+}
+
+.marqueeTrack:hover {
+  animation-play-state: paused;
+}
+
+/* Each group = one full set of logos */
+.marqueeGroup {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 4rem;
+  padding-right: 4rem; /* half of gap on right to match seamlessly */
+}
+
+.marqueeItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 72px;
+  transition: transform 0.3s ease;
+}
+
+.marqueeItem:hover {
+  transform: scale(1.08);
+}
+
+.marqueeLogo {
+  height: 48px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  display: block;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.marqueeItem:hover .marqueeLogo {
+  opacity: 1;
+}
+
+/* Keyframe: -50% of the track = exactly one group (since 2 groups fill the track) */
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── TABLET ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .marqueeSection {
+    padding: 2.25rem 0;
+  }
+  .marqueeGroup {
+    gap: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  .marqueeItem {
+    height: 60px;
+  }
+  .marqueeLogo {
+    height: 40px;
+    max-width: 130px;
+  }
+  .marqueeTrack {
+    animation-duration: 10s;
+  }
+  .marqueeContainer::before,
+  .marqueeContainer::after {
+    width: 60px;
+  }
+}
+
+/* ── MOBILE ─────────────────────────────────────── */
+@media (max-width: 480px) {
+  .marqueeSection {
+    padding: 2rem 0;
+  }
+  .marqueeGroup {
+    gap: 2rem;
+    padding-right: 2rem;
+  }
+  .marqueeItem {
+    height: 52px;
+  }
+  .marqueeLogo {
+    height: 34px;
+    max-width: 110px;
+  }
+  .marqueeTrack {
+    animation-duration: 8s;
+  }
+  .marqueeContainer::before,
+  .marqueeContainer::after {
+    width: 40px;
+  }
+}

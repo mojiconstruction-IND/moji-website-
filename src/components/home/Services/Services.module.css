@@ -1,0 +1,239 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
+  padding: 1.85rem;
+  border: 1px solid rgba(29, 78, 137, 0.12);
+  box-shadow: 0 4px 16px rgba(29, 78, 137, 0.06), 0 1px 3px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: hidden;
+  cursor: default;
+  transition: border-color 0.4s var(--ease-out-expo),
+              box-shadow 0.4s var(--ease-out-expo),
+              background 0.4s,
+              transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.card:hover {
+  border-color: color-mix(in srgb, var(--card-color, var(--primary)) 40%, white);
+  box-shadow:
+    0 20px 50px rgba(29,78,137,0.14),
+    0 6px 20px color-mix(in srgb, var(--card-color, var(--primary)) 12%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--card-color, var(--primary)) 12%, transparent);
+  background: rgba(255, 255, 255, 0.98);
+  transform: translateY(-8px) scale(1.015);
+}
+
+/* Animated top border */
+.cardBorder {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--card-color, var(--primary));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-out-expo);
+  border-radius: 0 0 2px 2px;
+}
+.card:hover .cardBorder { transform: scaleX(1); }
+
+.iconWrap {
+  position: relative;
+  width: 56px; height: 56px;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--card-color, var(--primary)) 12%, transparent);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.3s;
+}
+
+.imageBanner {
+  position: relative;
+  width: calc(100% + 3.7rem);
+  margin: -1.85rem -1.85rem 0.5rem -1.85rem;
+  height: 190px;
+  overflow: hidden;
+  border-bottom: 3px solid var(--card-color, var(--primary));
+}
+.imageBanner img {
+  transition: transform 0.6s var(--ease-out-expo);
+}
+.card:hover .imageBanner img {
+  transform: scale(1.08);
+}
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(29, 78, 137, 0.35) 100%);
+  z-index: 1;
+}
+.iconOverlay {
+  position: absolute;
+  bottom: 0.85rem;
+  left: 1.5rem;
+  width: 48px;
+  height: 48px;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(29, 78, 137, 0.18);
+  border: 1px solid rgba(29, 78, 137, 0.15);
+}
+.cardBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  padding: 0.3rem 0.85rem;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(29, 78, 137, 0.2);
+  border-radius: 999px;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  box-shadow: 0 2px 8px rgba(29, 78, 137, 0.12);
+}
+
+.card:hover .iconWrap {
+  background: color-mix(in srgb, var(--card-color, var(--primary)) 20%, transparent);
+}
+
+.icon { font-size: 1.65rem; line-height: 1; }
+
+.iconGlow {
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  border: 1.5px solid transparent;
+  background: linear-gradient(var(--color-white), var(--color-white)) padding-box,
+              linear-gradient(135deg, var(--card-color, var(--primary)), transparent) border-box;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.card:hover .iconGlow { opacity: 1; }
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.voltagePill {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+  background: rgba(29, 78, 137, 0.09);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  width: fit-content;
+  border: 1px solid rgba(29, 78, 137, 0.15);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.desc {
+  font-size: 1rem;
+  color: var(--text-body);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--color-steel-200);
+}
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+.featureDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--card-color, var(--primary));
+  flex-shrink: 0;
+}
+
+.projectSnippet {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.65rem 0.85rem;
+  background: var(--color-steel-50);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-steel-200);
+  margin-top: auto;
+}
+
+.projectSnippetLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.projectSnippetText {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--primary);
+  line-height: 1.4;
+}
+
+.cta { display: flex; justify-content: center; margin-top: 3.5rem; }
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-white);
+  text-decoration: none;
+  padding: 1rem 2.4rem;
+  background: var(--grad-primary);
+  border-radius: 999px;
+  box-shadow: 0 8px 25px rgba(29, 78, 137, 0.25);
+  transition: box-shadow 0.3s, transform 0.3s, gap 0.3s;
+}
+.ctaLink:hover { 
+  box-shadow: 0 12px 35px rgba(29, 78, 137, 0.4); 
+  transform: translateY(-3px);
+  gap: 0.85rem; 
+}
+
+@media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { 
+  .grid { grid-template-columns: 1fr; gap: 1.5rem; } 
+  .body { padding: 1.5rem 1.25rem; }
+  .ctaLink { width: 100%; justify-content: center; }
+}
+@media (max-width: 600px)  { .grid { grid-template-columns: 1fr; } }

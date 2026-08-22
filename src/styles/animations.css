@@ -1,0 +1,211 @@
+/* ============================================================
+   MOJI CONSTRUCTION — @keyframes Animation Library
+   ============================================================ */
+
+/* Electric pulse along SVG stroke */
+@keyframes electricPulse {
+  0%   { stroke-dashoffset: 1000; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+/* Rotating gradient border */
+@keyframes rotateBorder {
+  0%   { --border-angle: 0deg; }
+  100% { --border-angle: 360deg; }
+}
+
+/* Infinite marquee scroll */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Blueprint grid slow drift */
+@keyframes gridDrift {
+  0%   { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+/* Background breathing / pulse */
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.06); }
+}
+
+/* Stat number electric glow */
+@keyframes numGlow {
+  0%, 100% { text-shadow: 0 0 20px rgba(29, 78, 137, 0.4); }
+  50%       { text-shadow: 0 0 40px rgba(34, 211, 238, 0.8), 0 0 80px rgba(29, 78, 137, 0.3); }
+}
+
+/* Scroll indicator bounce */
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50%       { transform: translateY(8px); opacity: 1; }
+}
+
+/* Shimmer on buttons */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Underline draw from left */
+@keyframes underlineDraw {
+  from { transform: scaleX(0); transform-origin: left; }
+  to   { transform: scaleX(1); transform-origin: left; }
+}
+
+/* Fade in up */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade in */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Scale in */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Slide in left */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Slide in right */
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(-60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Card border glow */
+@keyframes borderGlow {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(29,78,137,0.3); }
+  50%       { box-shadow: 0 0 0 2px rgba(34,211,238,0.5), 0 0 20px rgba(34,211,238,0.15); }
+}
+
+/* Electric line spark */
+@keyframes spark {
+  0%   { opacity: 0; transform: scaleX(0); }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { opacity: 0; transform: scaleX(1); }
+}
+
+/* Orbit float */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-12px) rotate(2deg); }
+  66%       { transform: translateY(-6px) rotate(-1deg); }
+}
+
+/* Rotate slow */
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Counter increment flash */
+@keyframes counterFlash {
+  0%   { color: var(--spark); }
+  100% { color: var(--color-white); }
+}
+
+/* Accordion expand */
+@keyframes accordionDown {
+  from { height: 0; opacity: 0; }
+  to   { height: var(--radix-accordion-content-height); opacity: 1; }
+}
+
+/* Accordion collapse */
+@keyframes accordionUp {
+  from { height: var(--radix-accordion-content-height); opacity: 1; }
+  to   { height: 0; opacity: 0; }
+}
+
+/* Pulse ring */
+@keyframes pulseRing {
+  0%   { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+/* Draw path */
+@keyframes drawPath {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* Gentle vertical float */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-18px); }
+}
+
+/* Glow pulse — opacity + blur cycle */
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.3; filter: blur(40px); transform: scale(1); }
+  50%       { opacity: 0.7; filter: blur(60px); transform: scale(1.15); }
+}
+
+/* Horizontal shimmer sweep */
+@keyframes shimmerSweep {
+  0%   { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(300%) skewX(-15deg); }
+}
+
+/* SVG line draw-in */
+@keyframes drawLine {
+  from { stroke-dashoffset: 2000; opacity: 0.3; }
+  to   { stroke-dashoffset: 0; opacity: 1; }
+}
+
+/* Slow clockwise rotation */
+@keyframes rotateSlowCW {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Orb drift (figure-8 like) */
+@keyframes orbDrift {
+  0%   { transform: translate(0px, 0px); }
+  25%  { transform: translate(30px, -20px); }
+  50%  { transform: translate(0px, -40px); }
+  75%  { transform: translate(-30px, -20px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+/* Background grid shift */
+@keyframes gridShift {
+  0%   { background-position: 0 0; }
+  100% { background-position: 60px 60px; }
+}
+
+/* Arc flicker */
+@keyframes arcFlicker {
+  0%, 100% { opacity: 0.15; }
+  30%       { opacity: 0.4; }
+  60%       { opacity: 0.1; }
+  80%       { opacity: 0.5; }
+}
+
+/* Pulsing ring expand */
+@keyframes ringExpand {
+  0%   { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* Card shimmer on hover */
+@keyframes cardShimmer {
+  0%   { left: -100%; }
+  100% { left: 150%; }
+}

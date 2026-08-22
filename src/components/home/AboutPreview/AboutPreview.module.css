@@ -1,0 +1,321 @@
+.grid {
+  display: grid;
+  grid-template-columns: 4.5fr 5.5fr;
+  gap: 6rem;
+  align-items: center;
+  position: relative;
+}
+
+.grid::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Visual */
+.visual {
+  position: relative;
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Diagonal accent stripe behind image */
+.visual::before {
+  content: '';
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  right: -1rem;
+  bottom: -1rem;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 8px,
+    rgba(29, 78, 137, 0.04) 8px,
+    rgba(29, 78, 137, 0.04) 16px
+  );
+  border-radius: var(--radius-xl);
+  z-index: -1;
+  border: 1px solid rgba(29, 78, 137, 0.06);
+}
+
+.imageCard {
+  position: relative;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 50%, #fff7ed 100%);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(29, 78, 137, 0.12);
+  box-shadow: 0 25px 50px -12px rgba(29, 78, 137, 0.25),
+              0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+}
+
+.imagePlaceholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  left: -100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.imageCard:hover .imagePlaceholder::before {
+  animation: shimmerSweep 1s ease-in-out;
+}
+
+.realImage {
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.imageCard:hover .realImage {
+  transform: scale(1.05);
+}
+
+.overlayText {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 1.25rem 1.75rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 15px 35px -5px rgba(29, 78, 137, 0.15);
+  animation: floatSlow 6s ease-in-out infinite reverse;
+}
+
+.bigYear {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.yearLabel {
+  font-size: 0.95rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 800;
+  margin-top: 0.35rem;
+}
+
+/* Floating badge */
+.floatBadge {
+  position: absolute;
+  bottom: -1.25rem;
+  right: -1.25rem;
+  background: var(--grad-accent);
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px -10px rgba(234, 88, 12, 0.4);
+  animation: floatSlow 5s ease-in-out infinite;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.floatVal {
+  font-family: var(--font-mono);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+}
+
+.floatLabel {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.35rem;
+  font-weight: 600;
+}
+
+/* Text */
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.highlight {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.highlight:hover {
+  border-color: rgba(29, 78, 137, 0.3);
+  box-shadow: 0 15px 35px -5px rgba(29, 78, 137, 0.1);
+  transform: translateY(-4px) scale(1.02);
+  background: #ffffff;
+}
+
+.highlightIcon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  color: var(--primary);
+  transition: transform 0.3s, color 0.3s;
+  margin-top: 2px;
+}
+
+.highlightIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.highlight:hover .highlightIcon {
+  transform: scale(1.1) rotate(5deg);
+  color: var(--accent);
+}
+
+.highlightTitle {
+  font-weight: 700;
+  font-size: 1.075rem;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+  line-height: 1.35;
+}
+
+.highlightDesc {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--primary);
+  text-decoration: none;
+  gap: 0.35rem;
+  transition: gap 0.2s, color 0.2s;
+  margin-top: 0.5rem;
+}
+
+.link:hover {
+  gap: 0.65rem;
+  color: var(--accent);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .visual {
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .floatBadge {
+    right: -1rem;
+    bottom: -1rem;
+    padding: 1.25rem 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .highlights {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .visual::before {
+    display: none;
+  }
+
+  .overlayText {
+    top: auto;
+    left: 1rem;
+    bottom: 1rem;
+    padding: 1rem 1.25rem;
+    width: calc(100% - 2rem);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .bigYear {
+    font-size: 2rem;
+  }
+
+  .yearLabel {
+    margin-top: 0;
+  }
+
+  .floatBadge {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin-top: 1.5rem;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    animation: none;
+    border-radius: 16px;
+  }
+  
+  .imagePlaceholder {
+    border-radius: 16px;
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}

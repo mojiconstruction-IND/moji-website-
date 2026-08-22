@@ -1,0 +1,282 @@
+/* ── Desktop: Sticky horizontal scroll ─────────────── */
+.scrollWrapper {
+  height: 400vh;
+  position: relative;
+  background: var(--color-white);
+  display: block;
+}
+
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: radial-gradient(circle at 50% 120%, var(--primary-light), var(--color-white) 70%);
+}
+
+.fixedTitle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 6vh;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.horizontalTrack {
+  display: flex;
+  width: 225vw;
+  /* 5 panels × 45vw */
+  height: 100vh;
+  align-items: center;
+  position: relative;
+}
+
+.panel {
+  width: 45vw;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8vh;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* ── Background Tower image ── */
+.landscapeTower {
+  position: absolute;
+  top: 43%;
+  bottom: 35%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 380px;
+  height: auto;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.landscapeTower::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 240px;
+  height: 240px;
+  background: var(--color-cyan-400);
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0.35;
+  border-radius: 50%;
+}
+
+.landscapeSvg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Card ── */
+.card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 3px solid var(--primary);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2.5rem;
+  width: 520px;
+  max-width: 88vw;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.75rem;
+  box-shadow: 0 15px 35px rgba(29, 78, 137, 0.15);
+  z-index: 2;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.card:hover {
+  border-color: var(--border-brand);
+  box-shadow: var(--shadow-brand);
+  transform: translateY(-5px);
+}
+
+.stepIcon {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  background: var(--grad-primary);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(29, 78, 137, 0.3);
+}
+
+.stepIcon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.contentWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stepNum {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  background: var(--grad-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.stepTitle {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.stepDesc {
+  font-size: 0.975rem;
+  color: var(--text-body);
+  line-height: 1.65;
+}
+
+/* =====================================================================
+   MOBILE / TABLET: Vertical card stack
+   ===================================================================== */
+.mobileSection {
+  padding-block: 4rem;
+  background: var(--color-white);
+  display: none;
+}
+
+.mobileTimeline {
+  position: relative;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Vertical connector line */
+.mobileWire {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 27px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary-light), var(--color-steel-200));
+  z-index: 0;
+}
+
+.mobileStep {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 1;
+  padding-left: 56px;
+  width: 100%;
+}
+
+.mobileImageWrap {
+  width: 100%;
+  height: 250px;
+  position: relative;
+  z-index: 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 100%);
+}
+
+.mobileStep .card {
+  width: 100%;
+  max-width: 100%;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.75rem;
+}
+
+.mobileDot {
+  position: absolute;
+  top: 1.5rem;
+  left: 27px;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-cyan-400);
+  box-shadow: 0 0 12px var(--color-cyan-400);
+  z-index: 2;
+  border: 2px solid white;
+}
+
+/* ── TABLET (769px – 1024px): show vertical, hide desktop scroll ── */
+@media (max-width: 1024px) {
+  .mobileSection {
+    display: block;
+    padding-block: 3.5rem;
+  }
+
+  .scrollWrapper {
+    display: none;
+  }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 640px) {
+  .mobileSection {
+    padding-block: 3rem;
+  }
+
+  .mobileStep {
+    padding-left: 44px;
+  }
+
+  .mobileWire {
+    left: 18px;
+  }
+
+  .mobileDot {
+    left: 18px;
+  }
+
+  .mobileImageWrap {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobileStep .card {
+    flex-direction: column;
+    padding: 1.25rem;
+    gap: 0.85rem;
+  }
+
+  .stepIcon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .stepTitle {
+    font-size: 1.1rem;
+  }
+
+  .stepDesc {
+    font-size: 0.9rem;
+  }
+}

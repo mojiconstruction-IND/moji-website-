@@ -1,0 +1,41 @@
+.section { 
+  padding-block: var(--section-py); 
+  padding-inline: var(--section-px); 
+  position: relative; 
+  overflow: hidden;
+}
+
+.light { 
+  background-color: var(--bg-page);
+  background-image: 
+    linear-gradient(rgba(29, 78, 137, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(29, 78, 137, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.white { 
+  background-color: var(--color-white);
+  background-image: 
+    radial-gradient(circle at 100% 100%, rgba(34, 211, 238, 0.04) 0%, transparent 50%),
+    linear-gradient(rgba(29, 78, 137, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(29, 78, 137, 0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+}
+
+.alt { 
+  background-color: var(--bg-section-alt);
+  background-image: 
+    radial-gradient(circle at 0% 0%, rgba(234, 88, 12, 0.03) 0%, transparent 50%),
+    linear-gradient(rgba(29, 78, 137, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(29, 78, 137, 0.025) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+}
+.blueprint {
+  background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 50%, #eff6ff 100%);
+  border-top: 1px solid var(--border-brand);
+  border-bottom: 1px solid var(--border-brand);
+}
+.dark {
+  background: linear-gradient(180deg, #f8fafc 0%, #f0f7ff 50%, #ffffff 100%);
+  color: var(--text-primary);
+}
