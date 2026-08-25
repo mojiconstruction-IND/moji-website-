@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     'Moji Construction Private Limited — Turnkey EPC contractor for 33kV–400kV/765kV transmission lines & grid substations in Rajasthan. 36 years experience, 4,000+ km energised.',
   alternates: {
-    canonical: 'https://www.mojiconstruction.com',
+    canonical: 'https://mojiconstruction.com',
   },
 };
 

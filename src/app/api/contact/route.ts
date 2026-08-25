@@ -253,7 +253,7 @@ function buildAutoReplyHtml(d: ContactPayload): string {
                     <tr>
                       <td style="padding-bottom:8px;">
                         <span style="color:#ea580c;font-size:13px;">&#127758;</span>
-                        <a href="https://www.mojiconstruction.com" style="color:#1d4e89;font-size:13px;margin-left:6px;text-decoration:none;">www.mojiconstruction.com</a>
+                        <a href="https://mojiconstruction.com" style="color:#1d4e89;font-size:13px;margin-left:6px;text-decoration:none;">mojiconstruction.com</a>
                       </td>
                     </tr>
                     <tr>

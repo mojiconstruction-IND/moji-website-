@@ -54,7 +54,7 @@ export const companyInfo: CompanyInfo = {
   },
   email: 'moji.304@gmail.com',
   telephone: '+91-99297-33743',
-  website: 'https://www.mojiconstruction.com',
+  website: 'https://mojiconstruction.com',
   workingHours: 'Mon – Sat: 09:00 AM – 06:00 PM IST',
   experienceYears: 36,
   linesEnergizedKm: '4,000+ KM',
