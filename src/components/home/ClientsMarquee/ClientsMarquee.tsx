@@ -32,6 +32,7 @@ export default function ClientsMarquee() {
                       width={160}
                       height={48}
                       className={styles.marqueeLogo}
+                      style={{ width: 'auto', height: 'auto' }}
                     />
                   </div>
                 ) : null
@@ -49,6 +50,7 @@ export default function ClientsMarquee() {
                       width={160}
                       height={48}
                       className={styles.marqueeLogo}
+                      style={{ width: 'auto', height: 'auto' }}
                     />
                   </div>
                 ) : null
