@@ -3,9 +3,9 @@ import { projects } from '@/data';
 import ProjectsClient from './ProjectsClient';
 
 export const metadata: Metadata = {
-  title: 'Projects | Infrastructure Portfolio',
+  title: 'Projects | Moji Construction Portfolio — 150+ Completed',
   description:
-    'Explore Moji Construction\'s portfolio — 150+ major & 500+ overall completed transmission lines, 132kV-400kV substation structures, and solar power projects across Rajasthan.',
+    'Explore Moji Construction\'s portfolio — 150+ major completed transmission lines, 132kV–400kV substation structures, and solar power evacuation projects across Rajasthan.',
   alternates: {
     canonical: '/projects',
   },

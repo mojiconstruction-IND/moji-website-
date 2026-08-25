@@ -21,6 +21,7 @@ export interface CompanyInfo {
     full: string;
   };
   email: string;
+  telephone: string;
   website: string;
   workingHours: string;
   experienceYears: number;
@@ -52,7 +53,8 @@ export const companyInfo: CompanyInfo = {
     full: '29, Sheopur, Sector-7, Pratap Nagar, Sanganer, Jaipur, Rajasthan - 302033',
   },
   email: 'moji.304@gmail.com',
-  website: 'https://mojiconstruction.com',
+  telephone: '+91-99297-33743',
+  website: 'https://www.mojiconstruction.com',
   workingHours: 'Mon – Sat: 09:00 AM – 06:00 PM IST',
   experienceYears: 36,
   linesEnergizedKm: '4,000+ KM',

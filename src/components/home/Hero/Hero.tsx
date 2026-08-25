@@ -57,7 +57,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Headline — split word reveal */}
-          <h1 className={styles.headline} aria-label={`${HEADLINE_L1} ${HEADLINE_L2}`}>
+          <h1 className={styles.headline} aria-label={`Moji Construction — ${HEADLINE_L1} ${HEADLINE_L2}`}>
             <span className={styles.line}>
               {HEADLINE_L1.split(' ').map((word, wi) => (
                 <span key={wi} className={styles.wordClip}>
@@ -88,7 +88,7 @@ export default function Hero() {
 
           {/* Sub headline */}
           <motion.p variants={fadeUp} className={styles.sub}>
-            Turnkey EPC contractor delivering <strong>33kV to 400kV</strong> Extra High-Tension transmission lines, Grid Substations, and utility solar evacuation corridors across India.
+            <strong>Moji Construction</strong> — Turnkey EPC contractor delivering <strong>33kV to 400kV</strong> Extra High-Tension transmission lines, Grid Substations, and utility solar evacuation corridors across India.
           </motion.p>
 
           {/* CTA Buttons */}

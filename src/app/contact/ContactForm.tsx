@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import styles from './contact.module.css';
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [errorMsg, setErrorMsg] = useState('');
   const [form, setForm] = useState({
     name: '',
     organization: '',
@@ -16,12 +17,31 @@ export default function ContactForm() {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('sending');
-    setTimeout(() => {
+    setErrorMsg('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setErrorMsg(data.error || 'Something went wrong. Please try again.');
+        setStatus('error');
+        return;
+      }
+
       setStatus('sent');
-    }, 1200);
+    } catch {
+      setErrorMsg('Network error — please check your connection and try again.');
+      setStatus('error');
+    }
   };
 
   if (status === 'sent') {
@@ -32,10 +52,14 @@ export default function ContactForm() {
         <p className={styles.successDesc}>
           Thank you, <strong>{form.name || 'Valued Partner'}</strong>. Your commercial / technical inquiry regarding <em>{form.service || 'Transmission EPC Services'}</em> has been logged. Our engineering and project management team will review your specifications and respond to <strong>{form.email}</strong> within 24 to 48 business hours.
         </p>
+        <p className={styles.successDesc} style={{ marginTop: '0.5rem', fontSize: '0.85rem', opacity: 0.75 }}>
+          ✉️ A confirmation email with our contact details has been sent to <strong>{form.email}</strong>.
+        </p>
         <button
           type="button"
           onClick={() => {
             setStatus('idle');
+            setErrorMsg('');
             setForm({
               name: '',
               organization: '',
@@ -50,6 +74,26 @@ export default function ContactForm() {
           className={styles.resetBtn}
         >
           Submit Another Inquiry ←
+        </button>
+      </div>
+    );
+  }
+
+  if (status === 'error') {
+    return (
+      <div className={styles.success} style={{ borderColor: '#ef4444' }}>
+        <div className={styles.successIcon} style={{ background: 'rgba(239,68,68,0.12)', color: '#ef4444' }}>✕</div>
+        <h3 className={styles.successTitle} style={{ color: '#ef4444' }}>Submission Failed</h3>
+        <p className={styles.successDesc}>{errorMsg}</p>
+        <button
+          type="button"
+          onClick={() => {
+            setStatus('idle');
+            setErrorMsg('');
+          }}
+          className={styles.resetBtn}
+        >
+          ← Try Again
         </button>
       </div>
     );

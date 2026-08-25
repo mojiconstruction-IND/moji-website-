@@ -34,22 +34,28 @@ export const metadata: Metadata = {
     template: `%s | ${companyInfo.shortName}`,
   },
   description:
-    `${companyInfo.name} — Major Turnkey EPC Contractor for ${companyInfo.voltageRange} Extra High-Tension Transmission Lines, Grid Substations (GSS), Solar Evacuation Corridors & Highway Diversions. Founded in ${companyInfo.foundedYear} in ${companyInfo.address.city}, Rajasthan.`,
+    `${companyInfo.name} — Turnkey EPC contractor for 33kV to 400kV/765kV transmission lines & grid substations (GSS) in Jaipur, Rajasthan. Founded 1990. 4,000+ km energised.`,
   keywords: [
-    '33kV to 400kV transmission lines Jaipur',
+    'Moji Construction',
+    'Moji Construction Private Limited',
+    'Moji Construction Jaipur',
+    'Moji Construction Pvt Ltd',
+    'transmission line contractor Jaipur',
+    'EPC contractor Rajasthan',
+    '33kV to 400kV transmission lines Rajasthan',
     '765kV substation switchyard Rajasthan',
     'solar power evacuation contractor',
     'RRVPNL turnkey transmission contractor',
-    'Moji Construction Private Limited',
     'line shifting NHAI expressway',
-    'OPGW stringing contractor',
+    'OPGW stringing contractor India',
     'EHT transmission line contractor India',
+    'grid substation GSS contractor',
   ],
   authors: [{ name: companyInfo.name }],
   creator: companyInfo.name,
   metadataBase: new URL(companyInfo.website),
   alternates: {
-    canonical: '/',
+    canonical: companyInfo.website,
   },
   openGraph: {
     type: 'website',
@@ -79,12 +85,14 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': ['ConstructionBusiness', 'Organization'],
+  '@type': ['ConstructionBusiness', 'LocalBusiness', 'Organization'],
   name: companyInfo.name,
+  alternateName: ['Moji Construction', 'Moji Construction Pvt Ltd'],
   image: `${companyInfo.website}/icon.png`,
   '@id': companyInfo.website,
   url: companyInfo.website,
   email: companyInfo.email,
+  telephone: companyInfo.telephone,
   priceRange: '$$$',
   address: {
     '@type': 'PostalAddress',
@@ -109,7 +117,7 @@ const jsonLd = {
       name: 'India',
     },
   ],
-  foundingDate: '1990-01-01',
+  foundingDate: '1990',
   founder: {
     '@type': 'Person',
     name: companyInfo.founder.name,
@@ -128,7 +136,11 @@ const jsonLd = {
     opens: '09:00',
     closes: '18:00',
   },
-  sameAs: [],
+  sameAs: [
+    // Add social/directory profile URLs here when available, e.g.:
+    // 'https://www.linkedin.com/company/moji-construction',
+    // 'https://www.indiamart.com/moji-construction',
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

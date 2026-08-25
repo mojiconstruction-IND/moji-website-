@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import AboutClient from './AboutClient';
 
 export const metadata: Metadata = {
-  title: 'About | Engineering Excellence',
-  description: 'Learn about Moji Construction Private Limited — our history, mission, values, and leadership team. Engineering excellence since 2002 in Jaipur, Rajasthan.',
+  title: 'About Moji Construction | History, Mission & Leadership Team',
+  description: 'Learn about Moji Construction Private Limited — founded in 1990 in Jaipur. Our history, mission, values, and leadership team behind 36 years of transmission line and GSS excellence.',
   alternates: {
     canonical: '/about',
   },
@@ -16,7 +16,8 @@ export default function AboutPage() {
     mainEntity: {
       '@type': 'ConstructionBusiness',
       name: 'Moji Construction Private Limited',
-      foundingDate: '2002',
+      alternateName: 'Moji Construction',
+      foundingDate: '1990',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Jaipur',

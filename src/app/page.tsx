@@ -13,11 +13,11 @@ const FAQ = dynamic(() => import('@/components/home/FAQ'));
 const CTA = dynamic(() => import('@/components/home/CTA'));
 
 export const metadata: Metadata = {
-  title: 'Moji Construction Private Limited | 33kV–400kV Transmission & Substation EPC',
+  title: 'Moji Construction Private Limited | Transmission Line & Substation EPC Contractor',
   description:
-    'Moji Construction Private Limited — Turnkey EPC Contractor for 33kV, 132kV, 220kV & 400kV Transmission Lines, Grid Substations (GSS), Solar Evacuation Corridors & NHAI Diversions. Founded in 1990 in Jaipur, Rajasthan.',
+    'Moji Construction Private Limited — Turnkey EPC contractor for 33kV–400kV/765kV transmission lines & grid substations in Rajasthan. 36 years experience, 4,000+ km energised.',
   alternates: {
-    canonical: '/',
+    canonical: 'https://www.mojiconstruction.com',
   },
 };
 
