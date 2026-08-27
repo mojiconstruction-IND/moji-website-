@@ -13,7 +13,7 @@ const FAQ = dynamic(() => import('@/components/home/FAQ'));
 const CTA = dynamic(() => import('@/components/home/CTA'));
 
 export const metadata: Metadata = {
-  title: 'Moji Construction Pvt Ltd | Transmission Line & Substation EPC Contractor',
+  title: 'Moji Construction Pvt Ltd | EPC Contractor',
   description:
     'Moji Construction Pvt Ltd (Moji Construction Private Limited) — Turnkey EPC contractor for 33kV–400kV/765kV transmission lines & grid substations in Rajasthan. 36 years experience, 4,000+ km energised.',
   alternates: {

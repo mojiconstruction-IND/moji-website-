@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Poppins, Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
@@ -30,8 +31,12 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: `Moji Construction Pvt Ltd | 33kV–400kV Transmission & Substation EPC`,
+    default: `Moji Construction Pvt Ltd | Substation EPC`,
     template: `%s | Moji Construction Pvt Ltd`,
+  },
+  icons: {
+    icon: '/icon.png',
+    apple: '/apple-icon.png',
   },
   description:
     `${companyInfo.name} — Turnkey EPC contractor for 33kV to 400kV/765kV transmission lines & grid substations (GSS) in Jaipur, Rajasthan. Founded 1990. 4,000+ km energised.`,
@@ -153,6 +158,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-YOUR_MEASUREMENT_ID');
+          `}
+        </Script>
         <Preloader />
         <PageBackground />
         <Navbar />
