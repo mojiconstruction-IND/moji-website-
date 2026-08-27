@@ -30,8 +30,8 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: `${companyInfo.name} | 33kV–400kV Transmission & Substation EPC`,
-    template: `%s | ${companyInfo.shortName}`,
+    default: `Moji Construction Pvt Ltd | 33kV–400kV Transmission & Substation EPC`,
+    template: `%s | Moji Construction Pvt Ltd`,
   },
   description:
     `${companyInfo.name} — Turnkey EPC contractor for 33kV to 400kV/765kV transmission lines & grid substations (GSS) in Jaipur, Rajasthan. Founded 1990. 4,000+ km energised.`,
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     url: companyInfo.website,
-    title: `${companyInfo.name} | Power Transmission & Substation Infrastructure`,
+    title: `Moji Construction Pvt Ltd | Power Transmission & Substation Infrastructure`,
     description:
       `Turnkey EPC for ${companyInfo.voltageRange} Transmission Lines & Grid Substations across India since ${companyInfo.foundedYear}.`,
     siteName: companyInfo.name,

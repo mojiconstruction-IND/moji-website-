@@ -227,7 +227,7 @@ export default function ServicesPage() {
                 <div className={styles.sectorLogos}>
                   {sec.logos.map((logo, lIdx) => (
                     <div key={lIdx} className={styles.clientLogoWrap}>
-                      <Image src={logo} alt="Client Logo" fill style={{ objectFit: 'contain' }} />
+                      <Image src={logo} alt={`${sec.name} Client Logo`} fill style={{ objectFit: 'contain' }} />
                     </div>
                   ))}
                 </div>
