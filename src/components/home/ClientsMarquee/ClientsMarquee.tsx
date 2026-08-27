@@ -26,14 +26,14 @@ export default function ClientsMarquee() {
               {clients.map((client, i) =>
                 client.logo ? (
                   <div key={`a-${i}`} className={styles.marqueeItem}>
-                    <div style={{ position: 'relative', height: '48px', width: '160px' }}>
-                      <Image
-                        src={client.logo}
-                        alt={`${client.name} Logo`}
-                        fill
-                        style={{ objectFit: 'contain' }}
-                      />
-                    </div>
+                    <Image
+                      src={client.logo}
+                      alt={`${client.name} Logo`}
+                      width={160}
+                      height={48}
+                      className={styles.marqueeLogo}
+                      style={{ width: 'auto' }}
+                    />
                   </div>
                 ) : null
               )}
@@ -44,14 +44,14 @@ export default function ClientsMarquee() {
               {clients.map((client, i) =>
                 client.logo ? (
                   <div key={`b-${i}`} className={styles.marqueeItem}>
-                    <div style={{ position: 'relative', height: '48px', width: '160px' }}>
-                      <Image
-                        src={client.logo}
-                        alt={`${client.name} Logo`}
-                        fill
-                        style={{ objectFit: 'contain' }}
-                      />
-                    </div>
+                    <Image
+                      src={client.logo}
+                      alt={`${client.name} Logo`}
+                      width={160}
+                      height={48}
+                      className={styles.marqueeLogo}
+                      style={{ width: 'auto' }}
+                    />
                   </div>
                 ) : null
               )}
